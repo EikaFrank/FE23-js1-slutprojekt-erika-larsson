@@ -1,0 +1,103 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: rgb(216, 215, 215);   
+    
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #333;;
+    color: #fff;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.buttonDiv {
+    text-align: center;
+    margin: 10px;
+}
+
+#ratedBtn {
+    background-color: black;
+    color: #fff;
+    height: 2 rem;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+}
+
+#ratedBtn:hover{
+    background-color: rgb(87, 78, 78);
+}
+
+#popularBtn {
+    background-color: black;
+    color: #fff;
+    height: 2 rem;
+    padding: 0rem 1rem;
+    border-radius: 10px;   
+}
+
+#popularBtn:hover{
+    background-color: rgb(87, 78, 78);
+}
+
+form {
+    text-align: center;
+    margin: 30px;
+}
+form>button{
+    background-color: black;
+    color: #fff;
+    height: 2 rem;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(87, 78, 78);
+}
+
+input[type=text]{
+    border-radius: 10px;
+}
+input[type='radio'] {
+    accent-color: black;
+}
+
+fieldset{
+    margin: 1rem;
+}
+
+#searchInput {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-card {
+    width: 400px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .hidden {
+    display: none;
+}
+
+
+
+    
