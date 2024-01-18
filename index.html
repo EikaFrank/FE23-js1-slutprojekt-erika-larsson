@@ -15,12 +15,12 @@
       defer
     ></script>
     <script src="main.js" defer></script>
-    <title>TMDB</title>
+    <title>Movie Muddle</title>
   </head>
 
   <body>
     <header>
-      <h1>Movie muddle</h1>
+      <h1>Movie Muddle</h1>
     </header>
     <div class="buttonDiv">
       <button id="ratedBtn">Top rated</button>
@@ -44,11 +44,12 @@
 
       <button type="submit" class="button-display">Search</button>
     </form>
-
-    <main id="mainContainer"></main>
-
-    <div id="errorMessageContainer" class="hidden">
-      <p id="errorMessage"></p>
+    <div class="content-container">
+      <main id="mainContainer"></main>
+      <div id="errorMessageContainer">
+        <p id="errorMessage"></p>
+        <p id="errorInstructions"></p>
+      </div>
     </div>
   </body>
 </html>

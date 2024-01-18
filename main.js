@@ -132,8 +132,16 @@ async function searchMovieOrPerson(query, searchType) {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2UzZWY1MzMwN2I5NGNiZjRkYTkzZjgxMmIyMmQ2MSIsInN1YiI6IjY1ODAwNTYzZGY4NmE4MDkzN2U3OWY5MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pyN0ylXVd_G9_t26iEWYm4im-IG_rpEmlqDlPYDyqYA'
             },
         });
+        console.log(response);
         const data = await response.json();
+        console.log(data.total_results)
 
+
+        if (data.total_results === 0) {
+            console.error('Check your spelling and try a different search term.');
+            let errorDOM = document.querySelector('#errorInstructions');
+            errorDOM.innerHTML = 'Check your spelling and try a different search term.'
+        }
         const searchContainer = document.getElementById('mainContainer');
         searchContainer.innerHTML = '';
 
@@ -192,6 +200,7 @@ async function searchMovieOrPerson(query, searchType) {
             mainContainer.appendChild(resultCard);
         });
     } catch (error) {
+        console.error('fel');
         displayError("Something went wrong. Please try again later.");
     }
 }
@@ -199,10 +208,16 @@ async function searchMovieOrPerson(query, searchType) {
 
 function displayError(error) {
 
+    console.log('Error occurred:', error);
+
     let message;
-    if (error === '404 movie') message = `Can't find what you're looking for... try again.`;
-    else if (error === '404 person') message = `Can't find what you're looking for... try again.`;
-    else message = 'Something went wrong... wait for a bit and try again,';
+    let instructions = '';
+
+    if (error === '400 movie' || error === '400 person') {
+        message = `Can't find what you're looking for... try again.`;
+        instructions = 'Check your spelling and try a different search term.';
+    }
+    else { message = 'Something went wrong... wait for a bit and try again.'; }
 
     const errorMessageContainer = document.querySelector('#errorMessageContainer');
     errorMessageContainer.classList.remove('hidden');
@@ -210,12 +225,14 @@ function displayError(error) {
     const errorMessageElement = document.querySelector('#errorMessage');
     errorMessageElement.innerText = message;
 
+    const errorInstructionsElement = document.querySelector('#errorInstructions');
+    errorInstructionsElement.innerText = instructions;
 
 }
 
 function removePrevSearchResult() {
-    const containerEl = document.querySelector('#mainContainer');
-    containerEl.innerHTML = '';
+    const containerEl = document.querySelector('.content-container');
+    containerEl.classList.remove('hidden');
 
     const errorContainer = document.querySelector('#errorMessageContainer');
     errorContainer.classList.add('hidden');
